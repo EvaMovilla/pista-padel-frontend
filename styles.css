@@ -90,7 +90,7 @@ body {
   border: 1px solid transparent;
   background-color: rgb(153, 153, 186);
   color: white;
-  transition: 0.2s;
+  
 }
 
 /* EFECTO FOCUS */
@@ -109,9 +109,7 @@ body {
   border: none;
   border-radius: 8px;
   font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
+  }
 
 /* HOVER BOTÓN */
 .btn:hover {
@@ -160,9 +158,7 @@ body {
   border: none;
   border-radius: 8px;
   font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  display: inline-block;
+    display: inline-block;
   text-align: center;
   text-decoration: none;
   color: black;
@@ -281,8 +277,7 @@ body {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.3s;
-}
+  }
 
 .secondary-btn:hover {
   border-color: #22c55e;
@@ -411,3 +406,344 @@ body {
     font-size: 15px;
   }
 }
+
+/* --- AÑADIDOS PARA RESERVAS --- */
+
+/* Estilos para los Selects (para que coincidan con los inputs existentes) */
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: rgb(153, 153, 186);
+  color: white; /* Ajuste para que el texto sea visible */
+  appearance: none; /* Quita la flecha por defecto en algunos navegadores */
+}
+
+.form-group select:focus {
+  outline: none;
+  border: 1px solid #22c55e;
+  box-shadow: 0 0 5px rgb(4, 47, 4);
+}
+
+.form-group select option {
+  background-color: rgb(49, 49, 97);
+  color: white;
+}
+
+/* Layout de la página Mis Reservas */
+.reservas-page {
+  padding: 20px 40px 60px 40px;
+  flex: 1;
+}
+
+.reservas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Tarjeta de Reserva */
+.reserva-card {
+  background-color: rgb(49, 49, 97); /* Mismo fondo que la caja de login */
+  border: 1px solid rgb(25, 25, 54);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.reserva-card.cancelada {
+  opacity: 0.7;
+}
+
+.reserva-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  padding-bottom: 10px;
+}
+
+.reserva-header h4 {
+  color: #22c55e;
+  font-size: 16px;
+}
+
+.reserva-body p {
+  color: lightblue;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.reserva-footer {
+  margin-top: 15px;
+}
+
+/* Etiquetas de estado (Badges) */
+.badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  border:1px solid;
+}
+
+.badge-activa {
+
+  color: #22c55e;
+  border-color: #22c55e;
+}
+
+.badge-cancelada {
+
+  color: #ff0000;
+  border-color: #ff0000;
+}
+
+/* Botón de Cancelar */
+.btn-cancelar {
+  background-color: transparent;
+  color: #ff0000;
+  border: 1px solid #ff0000;
+}
+
+.btn-cancelar:hover {
+  background-color: #ff0000;
+  color: white;
+}
+
+/* --- ESTILOS ADMIN --- */
+
+.admin-tag {
+  font-size: 10px;
+  background-color: #22c55e;
+  color: #0c0c3c;
+  padding: 2px 6px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.admin-page {
+  padding: 40px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.admin-header-section {
+  margin-bottom: 30px;
+}
+
+.admin-header-section h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/* Quitar el fondo de la caja contenedora para que las tarjetas se vean sueltas */
+.table-container {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Evitar que la tabla obligue a las filas a pegarse */
+.admin-table {
+  border-collapse: separate;
+}
+/* Rompemos el formato tabla tradicional */
+.admin-table, 
+.admin-table tbody, 
+.admin-table tr, 
+.admin-table td {
+  display: block;
+  width: 100%;
+}
+
+/* Fuerza a ocultar la cabecera por completo */
+.admin-table thead {
+  display: none !important;
+}
+
+/* Diseño de cada fila como tarjeta (¡Añadimos tbody para que ignore la cabecera!) */
+.admin-table tbody tr {
+  margin-bottom: 25px;
+  background-color: rgb(49, 49, 97);
+  border-radius: 12px;
+  border: 1px solid rgb(25, 25, 54);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  padding: 10px 0;
+}
+
+/* Fila inactiva atenuada */
+.row-inactive {
+  opacity: 0.6;
+}
+
+/* Alineación de las celdas juntas (sin separación extrema) */
+.admin-table td {
+  display: flex;
+  justify-content: flex-start; /* <--- Esto agrupa el texto hacia la izquierda */
+  align-items: center;
+  padding: 12px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 15px;
+}
+
+.admin-table td:last-child {
+  border-bottom: none;
+}
+
+/* Etiquetas inyectadas (ID, Nombre, etc.) */
+.admin-table td::before {
+  font-weight: bold;
+  color: #22c55e;
+  font-size: 13px;
+  text-transform: uppercase;
+  min-width: 130px; /* <--- Esto crea una columna invisible que alinea todas las etiquetas */
+  margin-right: 15px;
+}
+
+/* Textos de cada etiqueta */
+.admin-table td:nth-child(1)::before { content: "ID"; }
+.admin-table td:nth-child(2)::before { content: "Nombre"; }
+.admin-table td:nth-child(3)::before { content: "Ubicación"; }
+.admin-table td:nth-child(4)::before { content: "Precio/h"; }
+.admin-table td:nth-child(5)::before { content: "Estado"; }
+.admin-table td:nth-child(6)::before { content: "Acciones"; }
+
+/* Botones alineados a la izquierda junto al texto */
+.actions-cell {
+  gap: 10px;
+}
+
+/* Botones de Acción en Tabla */
+.actions-cell {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.action-btn.edit {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid #3b82f6;
+}
+
+.action-btn.delete {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid #ef4444;
+}
+
+.action-btn:hover {
+  filter: brightness(1.2);
+}
+
+/* Checkbox Styling */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.checkbox-group input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  font-size: 14px;
+  cursor: pointer;
+}
+/* =========================
+   PERSONA 2 - PISTAS
+========================= */
+
+.nav-link.active {
+  color: #22c55e;
+}
+
+.pistas-page,
+.detalle-page {
+  width: 100%;
+  flex: 1;
+  padding: 40px 30px 60px 30px;
+}
+
+.pistas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pista-card {
+  background-color: rgb(49, 49, 97);
+  border: 1px solid rgb(25, 25, 54);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.pista-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.pista-card-content {
+  padding: 18px;
+}
+
+.pista-card-content h4 {
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.pista-info,
+.pista-price,
+.pista-description {
+  color: lightblue;
+  margin-bottom: 8px;
+}
+
+.detalle-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  background-color: rgb(49, 49, 97);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.detalle-card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.detalle-info h2 {
+  color: #22c55e;
+}
+
